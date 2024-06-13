@@ -1,0 +1,106 @@
+{"actions" : {
+	"title" : "Tg Admin",
+	"config" : {
+			"actions" : {
+				"options" : {
+					"subs" : {"id" : "subs", "title" : "Проверить подписку на канал/группу"},
+					"stats" : {"id" : "stats", "title" : "Обновить статистику активности в чате"},
+					"ban" : {"id" : "ban", "title" : "Забанить"},
+					"unban" : {"id" : "unban", "title" : "Разбанить"}
+				}
+			},
+			"data" : {},
+			"settings" : {
+
+				"subs" : {"template" : "
+							<div class='form-group input-chat_id' data-control='text'>
+								<label>ID/username канала/группы, где проверять</label>
+								<input class='settings-input form-control wf-input-input' name='%%name%%[chat_id]'>
+								<div class='help-label'>После добавления чат-бота для Telegram Admin в канал/группу, напишите в нем команду /sstgadminid, чтобы узнать ID этого канала/группы.</div>
+							</div>
+
+
+							<div class='form-group input-subs_attr_id' data-control='select' data-load='attr'>
+								<label>Сохранить результат в атрибут</label>
+								<select class='settings-input form-control wf-inp-select wf-inp-tags select2' name='%%name%%[subs_attr_id]'><option value=''>Выберите</option></select>
+								<div class='help-label'>Укажите, в какой атрибут подписчика записать результат статус подписчика для дальнейшей проверки в Условии.</div>
+							</div>
+
+
+
+
+						"
+				},
+
+
+				"stats" : {"template" : "
+							<div class='form-group input-chat_id' data-control='text'>
+								<label>ID группы, где проверять</label>
+								<input class='settings-input form-control wf-input-input' name='%%name%%[chat_id]'>
+								<div class='help-label'>Для комментариев нужно указать группу, которая для них создана. После добавления чат-бота для Telegram Admin в группу, напишите в ней команду /sstgadminid, чтобы узнать ID этой группы.</div>
+							</div>
+
+
+							<div class='form-group input-stats_days' data-control='text'>
+								<label>Период проверки в днях</label>
+								<input type='text' name='%%name%%[stats_days]' placeholder='7' class='settings-input wf-input-input form-control'>
+								<div class='help-label'>От 1 до 30. Считается по времени прохождения этого этапа в боте, а не по времени суток. Если сейчас 15:35 и проверка за 1 день, то проверяется активность за прошедшие 24 часа (до 15:35 вчерашнего дня).</div>
+							</div>
+
+
+							<div class='form-group input-stats_msgs_attr_id' data-control='select' data-load='attr'>
+								<label>Сохранить кол-во сообщений в атрибут</label>
+								<select class='settings-input form-control wf-inp-select wf-inp-tags select2' name='%%name%%[stats_msgs_attr_id]'><option value=''>Выберите</option></select>
+								<div class='help-label'>Укажите, в какой атрибут подписчика записать результат для дальнейшей проверки в Условии.</div>
+							</div>
+
+
+
+
+						"
+				},
+
+
+				"ban" : {"template" : "
+							<div class='form-group input-chat_id' data-control='text'>
+								<label>ID/username канала/группы, где забанить</label>
+								<input class='settings-input form-control wf-input-input' name='%%name%%[chat_id]'>
+								<div class='help-label'>После добавления чат-бота для Telegram Admin в канал/группу, напишите в нем команду /sstgadminid, чтобы узнать ID этого канала/группы.</div>
+							</div>
+
+							<div class='form-group input-ban_secs' data-control='text'>
+								<label>Срок бана в секундах</label>
+								<input type='text' name='%%name%%[ban_secs]' placeholder='86400' class='settings-input wf-input-input form-control'>
+								<div class='help-label'>От 30 до 31622400 (1 год, 366 дней). 300 - 5 минут, 3600 - 1 час, 86400 - сутки. Если меньше 30 секунд или больше года, то бан вечный. Только для супергрупп и каналов.</div>
+							</div>
+
+
+
+
+						"
+				},
+
+
+				"unban" : {"template" : "
+
+							<p>Метод доступен только для супергрупп и каналов (для обычных групп недоступен).</p>
+
+							<div class='form-group input-chat_id' data-control='text'>
+								<label>ID/username канала/группы, где разбанить</label>
+								<input class='settings-input form-control wf-input-input' name='%%name%%[chat_id]'>
+								<div class='help-label'>После добавления чат-бота для Telegram Admin в канал/группу, напишите в нем команду /sstgadminid, чтобы узнать ID этого канала/группы.</div>
+							</div>
+
+
+						"
+				}
+
+
+
+			}
+
+
+
+		}
+	}
+}
