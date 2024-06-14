@@ -1,0 +1,164 @@
+/**
+ * CSS styles
+ * for Admin part
+ *
+ */
+
+/* -------------------------- admin-menu-section ---------------------------------------- */
+.admin-menu-section .container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 5px 15px;
+}
+
+.admin-menu-section ul {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+}
+.admin-menu-section li {
+	list-style-type: none;
+	margin: 0 1em;
+	padding: 0;
+}
+.admin-menu-section a {
+	font-family: MontserratMedium, Montserrat, Arial, sans-serif;
+	font-size: 18px;
+	color: var(--text-color);
+	line-height: 1;
+}
+.admin-menu-section a:hover {
+	color: #FF0C12;
+	text-decoration: none;
+}
+/* -------------------------- /admin-menu-section --------------------------------------- */
+
+/* -------------------------- admin-item ------------------------------------------------ */
+.admin-item,
+.admin-item-extra {
+	max-width: 640px;
+	width: 100%;
+	flex-grow: 1;
+}
+
+.admin-item-card .card-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.admin-item-card .form-group {
+	margin-bottom: 20px;
+}
+.admin-item-card .form-info-group {
+	display: flex;
+}
+.admin-item-card .form-info-group label {
+	margin: 0 1rem 0 0;
+	font-weight: bold;
+}
+.admin-item-card .form-info-group p {
+	margin: 0;
+}
+
+.admin-item-extra .task-mess {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 10px;
+}
+.admin-item-extra .task-mess.mess-assistant {
+	justify-content: flex-end;
+}
+.admin-item-extra .task-mess .task-mess-inner {
+	border: solid 1px #cccccc;
+	border-radius: 12px;
+	padding: 5px 10px;
+}
+.admin-item-extra .task-mess .task-mess-inner p {
+	margin: 0;
+	padding: 0;
+}
+
+@media screen and (max-width: 576px) {
+	.container {
+		padding: 0;
+	}
+	
+	.admin-item-card {
+		border-radius: 0;
+		border-left: none;
+		border-right: none;
+	}
+	.admin-item-card .card-header {
+		border-radius: 0;
+	}
+	.admin-item-card .card-body {
+		padding: 1rem 0;
+	}
+	.admin-item-card form textarea,
+	.admin-item-card form input {
+		border-radius: 0;
+		border-left: none;
+		border-right: none;
+	}
+	.admin-item-card form label,
+	.admin-item-card form small {
+		padding: 0 0.75rem;
+		display: inline-block;
+	}
+	.admin-item-card .form-button-group {
+		padding: 0 0.75rem;
+	}
+	.admin-item-card .form-check {
+		padding-left: 2.25rem;
+	}
+	.admin-item-card .form-control:focus {
+		box-shadow: 0 0 0 .10rem rgba(13,110,253,.25)
+	}
+}
+/* -------------------------- /admin-item ----------------------------------------------- */
+
+/* -------------------------- admin-stats ----------------------------------------------- */
+
+.stats-admin-section {
+}
+
+.stats-admin-section .container {
+	width: 100%;
+	max-width: unset;
+}
+
+.stats-admin-section .stats-table {
+	font-size: 12px;
+}
+.stats-admin-section .stats-table td {
+	vertical-align: middle;
+}
+
+.stats-table span.less {
+	color: #FF0000;
+	font-size: 10px;
+}
+.stats-table span.more {
+	color: #009900;
+	font-size: 10px;
+}
+.stats-table td.stat_val {
+	min-width: 60px;
+}
+.stats-table td.money {
+	background-color: #AAAAAA;
+	font-weight: bold;
+}
+/*
+.stats-table td.money {
+	background-color: #DDDDDD;
+	font-weight: bold;
+}
+*/
+/* -------------------------- /admin-stats ---------------------------------------------- */

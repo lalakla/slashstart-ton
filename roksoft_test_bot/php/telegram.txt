@@ -1,0 +1,2 @@
+# register bot webhook
+https://api.telegram.org/bot7084672671:AAEYZwPjDV1_5ERzN3ElJ05gZsXjdaBP7fg/setWebhook?url=https://chat-bot-test.lalakla.ru/telegram/request

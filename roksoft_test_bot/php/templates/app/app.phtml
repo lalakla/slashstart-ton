@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<?php $this->_include("../common-head.phtml") ?>
+
+		<!-- App Main CSS -->
+		<link rel="stylesheet" type="text/css" href="<?=$this->_appurl("/css/main.css")?>" />
+
+	</head>
+	<body>
+<!-- init fonts to load -->
+<div style="font-family: Roboto; position: absolute; top: -1000; visibility: hidden">.</div>
+<div style="font-family: RobotoMedium; position: absolute; top: -1000; visibility: hidden">.</div>
+<div style="font-family: RobotoBold; position: absolute; top: -1000; visibility: hidden">.</div>
+
+<!-- GLOBAL -->
+<div class="global-container <?=($this->is_mobile?"global-is-mob":"global-is-web")?>">
+
+	<div class="loader-wrapper" id="global-preloader">
+		<div class="loader">
+			<div class="spinner-border mb-2" role="status"></div>
+			<p>Загрузка приложения</p>
+			<p data-progress><span data-value>0 %</span></p>
+		</div>
+	</div>
+
+	<!-- BOTTOM-GLOBAL -->
+	<div class="bottom-global-container">
+	</div>
+	<!-- /BOTTOM-GLOBAL -->
+
+</div>
+<!-- /GLOBAL -->
+
+<script type="text/javascript">
+
+wdlib.queue("/js/preloader.js").queue("jquery").queue("bootstrap").queue("/js/main.js")
+.then(function() {
+	app.Main.appstart();
+});
+
+</script>
+
+	</body>
+</html>

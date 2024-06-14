@@ -1,0 +1,11 @@
+<div class="modal-header">
+	Выбери пользователя
+</div>
+<div class="modal-body">
+	{{#each users}}
+	<div class="user" user-idx="{{@index}}">
+		<div class="user-photo" style="background-image: url('{{this.pic}}')"></div>
+		<span class="user-name">{{name}}</span><span class="user-name">id: {{api_user_id}}</span>
+	</div>
+	{{/each}}
+</div>

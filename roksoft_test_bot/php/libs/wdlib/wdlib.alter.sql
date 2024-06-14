@@ -1,0 +1,3 @@
+-- alter table wdlib_user_main modify `pic` varchar(512) not null default '', add `last_api_platform` tinyint unsigned not null default 0, add `last_api_user_id` bigint unsigned not null default 0;
+alter table wdlib_user_main add `big_pic` varchar(512) not null default '', add	`city` varchar(256) not null default '', add `anketa_link` varchar(512) not null default '', add `birthday` varchar(256) not null default '', add `birthday_date` int unsigned not null default 0, add `zodiac` tinyint unsigned not null default 0;
+alter table wdlib_user_main convert to character set utf8mb4 collate utf8mb4_bin;

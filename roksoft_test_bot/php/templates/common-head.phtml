@@ -1,0 +1,80 @@
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+<title><?=$this["pageTitle"]?></title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" type="text/css" href="<?=$this->_liburl("/libs/bootstrap/".\WDLIB\Core::config("bootstrap_version")."/css/bootstrap.min.css")?>" />
+
+<!-- Fonts CSS -->
+<link rel="stylesheet" type="text/css" href="<?=$this->_appurl("/css/fonts.css")?>" />
+
+<!-- App Common CSS -->
+<link rel="stylesheet" type="text/css" href="<?=$this->_appurl("/css/common.css")?>" />
+
+<!-- Favicon -->
+<?php /*<link rel="icon" href="https://itop.pro/favicon.ico" type="image/x-icon" /> */ ?>
+<link rel="icon" href="<?=$this->_appurl("/img/icons/favicon-120.png")?>" type="image/png" />
+<?php /*<link rel="icon" href="<?=$this->_appurl("/img/icons/favicon-circle-120.png")?>" type="image/png" />*/?>
+	
+<script src="<?=$this->_appurl("/lib/wdlib/wdlib.js")?>" type="text/javascript"></script>
+<script type="text/javascript">
+
+wdlib.Config.VERSION = "<?=$this["appVersion"]?>";
+
+wdlib.Config.PROJECT_URL = "<?=$this->_url("")?>";
+wdlib.Config.PROJECT_DOMAIN = "<?=$this["projectDomain"]?>";
+wdlib.Config.STATIC_URL = "<?=$this->_static("")?>";
+wdlib.Config.APP_URL = "<?=$this->_appurl("")?>";
+
+wdlib.Config.CURRENT_USER_ID = "<?=$this->current_user ? $this->current_user->id : ""?>";
+wdlib.Config.CURRENT_USER = <?=json_encode($this->current_user ? $this->current_user : null)?>;
+
+<?php if($this->api) : ?>
+wdlib.Config.CURRENT_API = <?=$this->api->platform?>;
+wdlib.Config.CLIENT_PLATFORM = wdlib.Config.CURRENT_API;
+<?php endif ?>
+
+<?php if($this->current_api_user) : ?>
+wdlib.Config.CURRENT_API_USER = <?=json_encode($this->current_api_user)?>;
+<?php endif ?>
+
+<?php if(($mob = $this->_isset("isMobile"))) : ?>
+	wdlib.Config.IS_MOBILE = true;
+<?php endif ?>
+
+<?php if($token = $this->_isset("sess_token")) : ?>
+	wdlib.Config.SESS_TOKEN = "<?=$token?>";
+<?php endif ?>
+
+wdlib.module.config({
+//	debug: true,
+	base: "<?=$this->_appurl("")?>",
+	map: {
+		"wdlib": "<?=$this->_appurl("/lib/wdlib")?>",
+		"jquery": "<?=$this->_liburl("/libs/jquery/".\WDLIB\Core::config("jquery_version")."/jquery.min.js")?>",
+//		"tonconnect-ui": "<?=$this->_liburl("/libs/tonconnect/ui/".\WDLIB\Core::config("tonconnect_ui_version")."/tonconnect-ui.min.js")?>",
+		"tonconnect-ui": "https://unpkg.com/@tonconnect/ui@<?=\WDLIB\Core::config("tonconnect_ui_version")?>/dist/tonconnect-ui.min.js",
+		"bootstrap": "<?=$this->_liburl("/libs/bootstrap/".\WDLIB\Core::config("bootstrap_version")."/js/bootstrap.min.js")?>",
+		"md5": "<?=$this->_liburl("/libs/md5/2.10.0/md5.min.js")?>",
+		"template7": "<?=$this->_liburl("/libs/template7/1.4.1/dist/template7.min.js")?>",
+		"dayjs": "<?=$this->_liburl("/libs/dayjs/".\WDLIB\Core::config("dayjs_version")."/dayjs.min.js")?>",
+		"flatpickr": "<?=$this->_liburl("/libs/flatpickr/4.6.6")?>",
+		"vk.bridge": "<?=$this->_liburl("/libs/vk/bridge/".\WDLIB\Core::config("vk_bridge_version")."/browser.min.js")?>"
+	}
+});
+
+<?php if (!$this->api) : ?>
+wdlib.queue("/js/main.js").then(function() {
+
+	app.Main.webstart(<?=json_encode($this->data["Config"])?>);
+
+	// TEST TEST TEST
+//	app.controller.Main.server("/index/test", {test:1}, function(data) {
+//		console.log("TEST RESPONSE : ", data);
+//	});
+});
+<?php endif ?>
+
+</script>

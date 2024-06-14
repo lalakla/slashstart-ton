@@ -1,0 +1,45 @@
+/**
+ * CSS styles
+ * for Main part
+ *
+ */
+
+/* -------------------------- global ---------------------------------------------------*/
+
+.top-global-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.top-global-container.global-is-mob {
+	flex-grow: 1;
+}
+.bottom-global-container {
+	width: 100%;
+	border-top: solid 1px var(--text-color);
+	background-color: #D8D8D8;
+}
+/* -------------------------- /global --------------------------------------------------*/
+
+.ton-connect-container {
+	margin: 25px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ton-disconnect-container {
+	display: none;
+/*	display: flex; */
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.ton-transaction-container {
+	display: none;
+/*	display: flex; */
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}

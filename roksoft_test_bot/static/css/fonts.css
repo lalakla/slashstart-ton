@@ -1,0 +1,12 @@
+@font-face {
+	font-family: "Roboto";
+	src: url('https://73505069-48c9-447b-9515-774a9411ca5c.selcdn.net/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: "RobotoMedium";
+	src: url('https://73505069-48c9-447b-9515-774a9411ca5c.selcdn.net/fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+}
+@font-face {
+	font-family: "RobotoBold";
+	src: url('https://73505069-48c9-447b-9515-774a9411ca5c.selcdn.net/fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+}

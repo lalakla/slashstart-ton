@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<?php $this->_include("common-head.phtml") ?>
+
+		<!-- App Main CSS -->
+		<link rel="stylesheet" type="text/css" href="<?=$this->_appurl("/css/main.css")?>" />
+		<?php foreach($this->css as $css) : ?>
+		<link rel="stylesheet" type="text/css" href="<?=$this->_appurl("/css/{$css}")?>" />
+		<?php endforeach ?>
+
+	</head>
+	<body>
+<!-- init fonts to load -->
+<div style="font-family: Roboto; position: absolute; top: -1000; visibility: hidden">.</div>
+<div style="font-family: RobotoMedium; position: absolute; top: -1000; visibility: hidden">.</div>
+<div style="font-family: RobotoBold; position: absolute; top: -1000; visibility: hidden">.</div>
+
+<!-- GLOBAL -->
+<div class="global-container <?=($this->is_mobile?"global-is-mob":"global-is-web")?>">
+
+	<!-- TOP-GLOBAL -->
+	<div class="top-global-container">
+
+		<?php /* if(\WDLIB\Core::isTest()):?>
+		<div class="container test-warning">Внимание! Это ТЕСТОВАЯ версия проекта! Никаких реальных платежей, заданий и пользователей тут нет!</div>
+		<?php endif */ ?>
+
+		<?php /* if($this->_isUserLogged() && !$this->_isUserConfirmed()):?>
+		<div class="container test-warning">Подтвердите пожалуйста Ваш email для полноценной работы с системой!</div>
+		<?php endif */ ?>
+
+		<?php if(($cc = $this->_isset("content"))) : ?>
+		<?php $this->_include($cc) ?>
+		<?php endif ?>
+
+	</div>
+	<!-- /TOP-GLOBAL -->
+
+	<!-- BOTTOM-GLOBAL -->
+	<div class="bottom-global-container">
+	</div>
+	<!-- /BOTTOM-GLOBAL -->
+
+</div>
+<!-- /GLOBAL -->
+
+	</body>
+</html>
